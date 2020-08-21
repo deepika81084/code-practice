@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Ajax example
+    </title>
+    <script type = "text/javascript">
+        function ajaxfunction()
+        {
+
+          var ajax = new XMLHttpRequest();
+          ajax.onreadystatechange=function()
+          {
+            if(this.readyState==4 && this.status == 200)
+            {
+                  document.getElementById('uiPaint').textContent = this.responseText;
+               //alert(this.responseText);
+            }
+          }
+          ajax.open("POST","surprise.html",true);
+          ajax.send();
+
+        }
+    </script>
+</head>
+<body>
+<button onclick="ajaxfunction()"> call ajax</button>
+<div id="uiPaint"></div>
+</body>
+
+</html>
